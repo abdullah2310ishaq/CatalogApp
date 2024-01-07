@@ -30,21 +30,19 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Material(
       color: context.canvasColor,
+
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Column(
             children: [
               SizedBox(height: 80),
-              Image.asset(
-                "assets/images/abc.png",
-                fit: BoxFit.cover,
-                height: 200,
-              ),
+
               SizedBox(
-                height: 20.0,
+                height: 200.0,
               ),
               Text(
                 "Welcome $name",
@@ -64,11 +62,26 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
+                      obscureText: false,
                       decoration: InputDecoration(
-                        hintText: "Enter username",
-                        labelText: "Username",
-                        border: OutlineInputBorder(), // Rectangular border
+                        hintText: "Enter Name",
+                        labelText: "Name",
+                        labelStyle: TextStyle(color: Colors.blue),
+                        hintStyle: TextStyle(color: Colors.grey),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
+                      style: TextStyle(color: Colors.blue),
+
                       validator: (value) {
                         if (value?.isEmpty ?? true) {
                           return "Username cannot be Empty";
@@ -87,8 +100,21 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         hintText: "Enter Password",
                         labelText: "Password",
-                        border: OutlineInputBorder(), // Rectangular border
+                        labelStyle: TextStyle(color: Colors.blue),
+                        hintStyle: TextStyle(color: Colors.grey),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
+                      style: TextStyle(color: Colors.blue),
                       validator: (value) {
                         if (value?.isEmpty ?? true) {
                           return "Password cannot be Empty";
@@ -98,6 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
+
                     SizedBox(height: 20),
                     Material(
                       color: Colors.blue, // Change the background color
@@ -121,7 +148,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+
                     ),
+
                   ],
                 ),
               )
@@ -129,6 +158,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
+
     );
+
   }
 }
